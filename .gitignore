@@ -1,0 +1,141 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+.DS_Store
+dist
+dist-ssr
+coverage
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+*.tsbuildinfo
+
+.eslintcache
+
+# Cypress
+/cypress/videos/
+/cypress/screenshots/
+
+# Vitest
+__screenshots__/
+
+# Vite
+*.timestamp-*-*.mjs
+
+
+
+# ======================================
+# Vue 项目专用 Git 忽略文件
+# 适配：Vue2/Vue3 + Vite/Vue CLI + 所有包管理器
+# ======================================
+
+###########################
+# 1. 依赖包目录（必忽略）
+###########################
+node_modules/
+.pnpm-store/
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+
+###########################
+# 2. 项目构建打包产物
+###########################
+# Vite/Vue CLI 打包输出目录
+dist/
+build/
+out/
+
+# 临时编译文件
+*.tmp
+*.temp
+
+###########################
+# 3. 环境变量配置文件
+###########################
+# 本地环境变量（包含密钥、密码，绝对不能提交）
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# 仅保留示例文件 .env.example 提交到仓库
+
+###########################
+# 4. 日志文件
+###########################
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+###########################
+# 5. 编辑器/IDE 缓存
+###########################
+# VS Code
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# WebStorm
+.idea/
+*.iml
+*.iws
+*.ipr
+
+###########################
+# 6. 操作系统缓存文件
+###########################
+# macOS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+
+###########################
+# 7. 测试/覆盖率文件
+###########################
+coverage/
+*.lcov
+.nyc_output/
+
+###########################
+# 8. 其他临时文件
+###########################
+# 本地自定义配置
+*.local
+
+# 锁定文件（可选：团队统一包管理器可提交，否则忽略）
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
