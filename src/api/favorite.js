@@ -7,7 +7,11 @@ export const favoriteApi = {
   },
 
   saveFavoriteFolder(data) {
-    return mockApi.favorite.saveFavoriteFolder(data)
+    return request({
+      url: '/user/favorite/folder',
+      method: 'post',
+      data,
+    })
   },
 
   getFolderList() {
@@ -15,7 +19,6 @@ export const favoriteApi = {
       url: '/user/favorite/folder/list',
       method: 'get',
     })
-    //return mockApi.favorite.getFolderList()
   },
 
   getFavoritePage(params) {
@@ -27,6 +30,9 @@ export const favoriteApi = {
   },
 
   deleteFavoriteFolder(folderId) {
-    return mockApi.favorite.deleteFavoriteFolder(folderId)
+    return request({
+      url: `/user/favorite/folder/${folderId}`,
+      method: 'delete',
+    })
   },
 }

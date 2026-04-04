@@ -40,6 +40,7 @@ const getFavoriteList = async () => {
     })
     audioList.value = res.records || []
   } catch (error) {
+    console.error(error.message)
     ElMessage.error('获取收藏列表失败')
   } finally {
     loading.value = false
