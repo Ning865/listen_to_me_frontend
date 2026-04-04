@@ -19,7 +19,7 @@ const folderForm = ref({
 const getFolderList = async () => {
   try {
     const res = await favoriteApi.getFolderList()
-    folders.value = res
+    folders.value = res.data
     if (folders.value.length > 0 && !currentFolderId.value) {
       currentFolderId.value = folders.value[0].folderId
       getFavoriteList()
@@ -135,6 +135,7 @@ onMounted(() => {
           </div>
           <div class="folder-meta">
             <span>{{ folder.audioCount }} 个音频</span>
+            <span>{{ folder.createTime }}</span>
             <el-button
               link
               type="danger"
@@ -160,6 +161,7 @@ onMounted(() => {
             :key="audio.id"
             class="audio-card"
           >
+          
             <img :src="audio.coverUrl" alt="封面" class="cover" />
             <div class="audio-info">
               <h4>{{ audio.title }}</h4>

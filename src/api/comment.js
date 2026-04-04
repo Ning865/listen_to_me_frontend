@@ -1,4 +1,3 @@
-import mockApi from '@/data/mockApi'
 import request from '@/utils/request'
 
 export const commentApi = {
@@ -16,13 +15,8 @@ export const commentApi = {
       method: 'get',
       params: data,
     })
-
-    //return request('/comment/getCommentList', data)
   },
 
-  deleteComment(commentId) {
-    return mockApi.comment.deleteComment(commentId)
-  },
 
   saveCommentLike(data) {
     return request({
@@ -30,6 +24,5 @@ export const commentApi = {
       method: 'post',
       data,
     })
-    //return mockApi.comment.saveCommentLike(data)
   },
 }

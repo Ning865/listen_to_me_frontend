@@ -1,4 +1,5 @@
 import mockApi from '@/data/mockApi'
+import request from '@/utils/request'
 
 export const favoriteApi = {
   saveAudioAction(data) {
@@ -10,7 +11,11 @@ export const favoriteApi = {
   },
 
   getFolderList() {
-    return mockApi.favorite.getFolderList()
+    return request({
+      url: '/user/favorite/folder/list',
+      method: 'get',
+    })
+    //return mockApi.favorite.getFolderList()
   },
 
   getFavoritePage(params) {
