@@ -17,7 +17,7 @@
           我的预约记录
         </h3>
         <div class="filter-bar">
-          <el-select v-model="searchParams.status" placeholder="全部状态" clearable @change="getMyConsultOrders">
+          <el-select v-model="searchParams.status" placeholder="全部状态" clearable @change="getMyConsultOrders" style="min-width: 120px;">
             <el-option label="全部状态" value="" />
             <el-option label="待确认" value="PENDING_CONFIRM" />
             <el-option label="已确认" value="CONFIRMED" />

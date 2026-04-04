@@ -1,4 +1,5 @@
 import mockApi from '@/data/mockApi'
+import request from '@/utils/request'
 
 export const creatorApi = {
   uploadAudio(file) {
@@ -14,7 +15,12 @@ export const creatorApi = {
   },
 
   getAudioPage(params) {
-    return mockApi.creator.getAudioPage(params)
+    return request({
+      url: '/creator/audio/page',
+      method: 'get',
+      params
+    })
+    //return mockApi.creator.getAudioPage(params)
   },
 
   getAudio(id) {
@@ -48,18 +54,34 @@ export const creatorApi = {
 
   // 预约订单管理
   getConsultPage(params) {
-    return mockApi.creator.getConsultPage(params)
+    return request({
+      url: '/creator/consult/page',
+      method: 'get',
+      params
+    })
   },
 
   confirmConsult(id, address) {
-    return mockApi.creator.confirmConsult(id, address)
+    return request({
+      url: `/creator/consult/${id}/confirm`,
+      method: 'put',
+      data: {
+        address
+      }
+    })
   },
 
   rejectConsult(id) {
-    return mockApi.creator.rejectConsult(id)
+    return request({
+      url: `/creator/consult/${id}/reject`,
+      method: 'put'
+    })
   },
 
   completeConsult(id) {
-    return mockApi.creator.completeConsult(id)
+    return request({
+      url: `/creator/consult/${id}/complete`,
+      method: 'put'
+    })
   },
 }

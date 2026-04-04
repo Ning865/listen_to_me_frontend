@@ -49,7 +49,6 @@
               <button v-if="order.status === 'PENDING_CONFIRM'" @click="confirmConsult(order.id)" class="btn btn-success">确认</button>
               <button v-if="order.status === 'PENDING_CONFIRM'" @click="rejectConsult(order.id)" class="btn btn-danger">拒绝</button>
               <button v-if="order.status === 'CONFIRMED'" @click="completeConsult(order.id)" class="btn btn-primary">标记完成</button>
-              <span v-else>无操作</span>
             </td>
           </tr>
         </tbody>
@@ -96,8 +95,8 @@ export default {
           endDate: searchParams.value.endDate
         }
         const response = await creatorApi.getConsultPage(params)
-        consultOrders.value = response.records
-        total.value = response.total
+        consultOrders.value = response.data.records || []
+        total.value = response.data.total || 0
       } catch (error) {
         console.error('获取预约订单列表失败:', error)
       }
@@ -106,7 +105,6 @@ export default {
     const confirmConsult = async (id) => {
       try {
         await creatorApi.confirmConsult(id)
-        alert('预约确认成功')
         getConsultOrders()
       } catch (error) {
         console.error('确认预约失败:', error)
@@ -130,11 +128,9 @@ export default {
     const completeConsult = async (id) => {
       try {
         await creatorApi.completeConsult(id)
-        alert('标记完成成功')
         getConsultOrders()
       } catch (error) {
         console.error('标记完成失败:', error)
-        alert('标记完成失败')
       }
     }
 

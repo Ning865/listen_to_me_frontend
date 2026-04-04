@@ -21,8 +21,8 @@ const getAudioList = async () => {
       pageNum: pagination.value.pageNum,
       pageSize: pagination.value.pageSize,
     })
-    audioList.value = res.records || []
-    pagination.value.total = res.total || 0
+    audioList.value = res.data.records || []
+    pagination.value.total = res.data.total || 0
   } catch (error) {
     ElMessage.error('获取稿件列表失败')
   } finally {
