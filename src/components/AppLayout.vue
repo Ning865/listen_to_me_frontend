@@ -2,6 +2,7 @@
 import { computed } from 'vue'
 import { useRouter } from 'vue-router'
 import { useUserStore } from '@/stores/user/user'
+import { DataAnalysis, Check, Refresh, Setting, Collection, User, Message, Timer, Plus, SwitchButton, Headset, Wallet, Calendar } from '@element-plus/icons-vue'
 
 const router = useRouter()
 const userStore = useUserStore()
@@ -86,8 +87,23 @@ const handleLogout = () => {
                     </el-dropdown-item>
                   </template>
                   <template v-if="isAdmin">
-                    <el-dropdown-item @click="handleNavigation('/admin')">
+                    <el-dropdown-item divided>
                       <el-icon><Setting /></el-icon> 管理面板
+                    </el-dropdown-item>
+                    <el-dropdown-item @click="handleNavigation('/admin/dashboard')">
+                      <el-icon><DataAnalysis /></el-icon> 数据大盘
+                    </el-dropdown-item>
+                    <el-dropdown-item @click="handleNavigation('/admin/audio-audit')">
+                      <el-icon><Collection /></el-icon> 音频审核
+                    </el-dropdown-item>
+                    <el-dropdown-item @click="handleNavigation('/admin/apply-audit')">
+                      <el-icon><Check /></el-icon> 申请审核
+                    </el-dropdown-item>
+                    <el-dropdown-item @click="handleNavigation('/admin/refund-audit')">
+                      <el-icon><Refresh /></el-icon> 退款审核
+                    </el-dropdown-item>
+                    <el-dropdown-item @click="handleNavigation('/admin/user-management')">
+                      <el-icon><User /></el-icon> 用户管理
                     </el-dropdown-item>
                   </template>
                   <el-dropdown-item divided @click="handleLogout">
